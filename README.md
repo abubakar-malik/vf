@@ -1,5 +1,5 @@
 # Introduction
-This project will deploy a simple Python based API. It has couple of POST methods. You can use one method to insert date-time stamp into your database while one method to see existing data from the database. The application is scaleable and have persistent data in case of application failure or unexpected crash of database.
+This project will deploy a simple Python based API. It has couple of POST methods. You can use one method to insert date-time stamp into your database while one method to see existing data from the database. The application is scaleable and have persistent data in case of application failure or unexpected crash of database. Below you can see logical diagram of the solution and architecture diagram of one of the possible solutions. There are also PDFs (architecture.pdf, logical_design.pdf) available in the repository 
 
 ## Logical design and Architecture diagram
 ![Logical Design](images/logical_design.png)
@@ -34,6 +34,7 @@ Use one or all of the below curl commands
 * [Amazon EKS CLI](https://eksctl.io/)
 * [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [Docker](https://docs.docker.com/get-docker/)
+* [AWS Configured](https://docs.aws.amazon.com/cli/latest/reference/configure/)
  #### Get source code
  ```
   git clone git@github.com:abubakar-malik/vf.git
@@ -42,12 +43,40 @@ Use one or all of the below curl commands
  ```
  cd docker/
  sudo docker build --tag vf .
- sudo docker login --username=abual
+ sudo docker login --username=DOCKERHUBUSERNAME
  sudo docker images
- sudo docker tag 3c537760ae99 abual/vf:latest
+ sudo docker tag IMAGE_ID DOCKERHUBUSERNAME/vf:latest
  sudo docker images
- sudo docker push abual/vf:latest
+ sudo docker push DOCKERHUBUSERNAME/vf:latest
  ```
- ## Monitoring
-
+ #### Create EKS cluster
+  ```
+ cd scripts/
+ sudo docker build --tag vf .
+ sudo docker login --username=DOCKERHUBUSERNAME
+ sudo docker images
+ sudo docker tag IMAGE_ID DOCKERHUBUSERNAME/vf:latest
+ sudo docker images
+ sudo docker push DOCKERHUBUSERNAME/vf:
+ ```
+ #### Deploy APP/DB stack
+ ```
+ ```
+ #### Test APP/DB
+ ```
+ ```
+ #### Scale up and auto scaling
+ ```
+ ```
+ #### Deploy Monitoring stack
+ ```
+ ```
+ #### Testing Monitoring stack
+ ```
+ ```
+ #### Cleanup
+ ```
+ ```
+ ## Explanation of the solution
+ ## Things I wanted to do?
  ## Improvements
