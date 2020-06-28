@@ -2,9 +2,8 @@
 
 source source.sh
 
-echo "ENVIRONMENT VARIABLES: "
-echo $AWS_EKS_CLUSTER
-echo $AWS_EKS_K8S_VERSION
+echo EKS ClusterName: $AWS_EKS_CLUSTER
+echo Kubernetes version: $AWS_EKS_K8S_VERSION
 
 echo "Bringing up EKS cluster..."
 eksctl create cluster --name=${AWS_EKS_CLUSTER} \
