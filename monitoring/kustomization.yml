@@ -1,0 +1,9 @@
+namespace: monitoring
+resources:
+  - namespace.yml
+  - account.yml
+  - role.yml
+  - rolebinding.yml
+  - configs.yml
+  - service.yml
+  - deployment.yml
