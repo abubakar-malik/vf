@@ -1,6 +1,6 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
-source ./source.sh
+source source.sh
 
 echo "ENVIRONMENT VARIABLES: "
 echo $AWS_EKS_CLUSTER
