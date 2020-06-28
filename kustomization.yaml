@@ -1,0 +1,4 @@
+resources:
+  - database.yml
+  - secret.yml
+  - app.yml
