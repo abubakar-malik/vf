@@ -6,7 +6,7 @@ This project will deploy a simple Python based API. It has couple of POST method
 ![Architecture Diagram](images/architecture.png)
 
 ## How to test if solution is working?
-Use one or all of the below curl commands
+Use one or all of the below curl commands 
 
 * To get welcome/landing message
 ```
