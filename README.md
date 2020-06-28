@@ -34,6 +34,20 @@ Use one or all of the below curl commands
 * [Amazon EKS CLI](https://eksctl.io/)
 * [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [Docker](https://docs.docker.com/get-docker/)
+ #### Get source code
+ ```
+  git clone git@github.com:abubakar-malik/vf.git
+ ```
+ #### Create Docker image
+ ```
+ cd docker/
+ sudo docker build --tag vf .
+ sudo docker login --username=abual
+ sudo docker images
+ sudo docker tag 3c537760ae99 abual/vf:latest
+ sudo docker images
+ sudo docker push abual/vf:latest
+ ```
  ## Monitoring
 
  ## Improvements
