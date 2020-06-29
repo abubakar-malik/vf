@@ -21,12 +21,12 @@ Use one or all of the below curl commands
  curl -X POST http://{HOST}/show
  ```
  HOST has one of the below values;
- 1. a387bfbc1b8dd11ea98b40ad3723e932-2083732890.eu-west-2.elb.amazonaws.com
- 2. ip1
- 3. ip2
- 4. ip3
+ 1. ac50ade49b9a311ea8d760656d98d2d8-1765577022.eu-west-1.elb.amazonaws.com
+ 2. 108.128.155.54
+ 3. 52.18.205.82
 
- Monitoring solution can be access via 
+ Monitoring solution can be access via below link;
+ http://ac8f11cfbb9a311ea8f5b02798938d9e-190632915.eu-west-1.elb.amazonaws.com:9090
 
 
  ## Solution Explanation
@@ -99,6 +99,10 @@ Use one or all of the below curl commands
  ```
  This will run kustomization.yaml exists in the *monitoring* directory. kustomization.yaml will create kubernetes resources required to run monitoring system Prometheus. This will also create an AWS loadbalancer to access Prometheus.
  #### Testing Monitoring stack
+ You can run below command to check if resources have been created successfully in Kubernetes
+ ```
+ kubectl get all -n monitoring
+ ```
  Once deployed successfully, Prometheus should be available as per below;
  ```
  http://{HOST}:9090/
