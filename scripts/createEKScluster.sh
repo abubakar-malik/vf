@@ -7,7 +7,7 @@ echo Kubernetes version: $AWS_EKS_K8S_VERSION
 
 echo "Bringing up EKS cluster..."
 eksctl create cluster --name=${AWS_EKS_CLUSTER} \
-                      --nodes=3 \
+                      --nodes=1 \
                       --version=${AWS_EKS_K8S_VERSION}
 
 echo "Configuring kubectl config to use new cluster..."

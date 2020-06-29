@@ -26,6 +26,9 @@ Use one or all of the below curl commands
  3. ip2
  4. ip3
 
+ Monitoring solution can be access via 
+
+
  ## Solution Explanation
  ***IMPORTANT:*** The solution was deployed and tested on Ubuntu 18 and on MAC catalina version 10.15.5
  ### Prerequisites
@@ -77,11 +80,16 @@ Use one or all of the below curl commands
  You can scale up and scale down the solution vertically by increasing number of pods or horizontally by increasing number of nodes. For example;
  ```
  kubectl scale deployment app --replicas=3
+
  eksctl scale nodegroup --cluster=vf-eks-cluster --nodes=5 {NODE_GROUP_ID}
  ```
  You can also setup autoscaling based on CPU utilization for example;
  ```
  kubectl autoscale deployment app --min=2 --max=10 --cpu-percent=80
+ ```
+ *Verification*
+ ```
+ kubectl get pods -o wide
  ```
  #### Deploy Monitoring stack
  ```
@@ -105,7 +113,31 @@ Use one or all of the below curl commands
  cd scripts/
  ./destroy.sh
  ```
- ## Why choose this solution?
  ## Explanation of the solution
- ## Things I wanted to do?
+ The journey of the creation started with  writing a Python script for API which can handle POST requests to inser the date-time
+stamp into the database.
+ MySQL was used as a database because it's quite easy and I have experience mainly with relational databases.
+ Next step was to create a Docker container for the app which takes environment variable to connect to a database and insert/retrieve data.
+ AWS managed Kubernetes (EKS) is used to host the application and database. 
+ Kubernetes resources like Deloyment,Pod and Service are being used to deploy and expose the app which helps to scale up and down the application. 
+ Kubernetes secret is used to encrypt database login details.
+ For database, I used mysql:5.7 container image. Kubernetes PersistentVolumeClaim resource has been used to save database data in case of database accidental crash or failure.
+ AWS Loadbalancer have been created to access application and monitoring application Prometheus
+
+ ## Why chosen this solution?
+ I choose this solution because it was easy as Kubernetes cluster is managed by AWS so I only had to deploy the applications and scale if required. I passed kubernetes certification course but never really had a chance to deploy any production or production like application. I thought this is a good opportunity. 
+ ## Other solution(s) I wanted to do?
+ There were couple of other options I could use. I did
+ 1. Create database in AWS using Terraform and Use EKS cluster for application deployment. Leveraging a PaaS service for databases brings the following benefits: 
+    * High availability with 99.99% SLA, fully managed by AWS
+    * Version patching fully managed by AWS
+    * Backup and recovery
+ 2. Use Terraform to create AWS EC2s, loadbalancer and use Ansible to deploy the application
+ 3. Use Vagrant to spin up VMs, deploy application via Ansible and use Nginx as front-end proxy to serve the application
  ## Improvements
+ There's always room of improvements. I didn't have much time to implement some of these. But I believe below improvements can be made to the solution
+ * Create a CI/CD Pipeline
+ * Use an ElasticIP and/or DNS with Kubernetes Ingress controller 
+ * Use SSL cert for outbound URL
+ * Spend more time on creating Prometheus jobs
+ * User monitoring solution like Grafana
