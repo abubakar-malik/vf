@@ -60,6 +60,7 @@ Use one or all of the below curl commands
  sudo docker push {DOCKERHUB_USER_NAME}/vf:latest
  ```
  #### Deploy APP/DB stack
+ Go to root or in the main directory of this repo and run below
  ```
  kubectl apply -k ./
  ```
@@ -92,6 +93,7 @@ Use one or all of the below curl commands
  kubectl get pods -o wide
  ```
  #### Deploy Monitoring stack
+ Go to root or in the main directory of this repo and run below
  ```
  kubectl apply -k ./monitoring/
  ```
