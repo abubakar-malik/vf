@@ -120,12 +120,12 @@ Use one or all of the below curl commands
  ./destroy.sh
  ```
  ## Explanation of the solution
- The journey of the creation started with  writing a Python script for API which can handle POST requests to inser the date-time
+ The journey of the creation started with  writing a Python script for API which can handle POST requests to insert the date-time
 stamp into the database.
  MySQL was used as a database because it's quite easy and I have experience mainly with relational databases.
- Next step was to create a Docker container for the app which takes environment variable to connect to a database and insert/retrieve data.
+ Next step was to create a Docker container for the app which uses environment variables to connect to a database and insert/retrieve data.
  AWS managed Kubernetes (EKS) is used to host the application and database. 
- Kubernetes resources like Deloyment,Pod and Service are being used to deploy and expose the app which helps to scale up and down the application. 
+ Kubernetes resources like Deloyment,Pod and Service are being used to deploy and expose the app which help to scale up and down the application. 
  Kubernetes secret is used to encrypt database login details.
  For database, I used mysql:5.7 container image. Kubernetes PersistentVolumeClaim resource has been used to save database data in case of database accidental crash or failure.
  AWS Loadbalancer have been created to access application and monitoring application Prometheus
@@ -146,4 +146,4 @@ stamp into the database.
  * Use an ElasticIP and/or DNS with Kubernetes Ingress controller 
  * Use SSL cert for outbound URL
  * Spend more time on creating Prometheus jobs
- * User monitoring solution like Grafana
+ * Use monitoring solution like Grafana
